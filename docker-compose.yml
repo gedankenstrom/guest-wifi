@@ -9,9 +9,9 @@ services:
     environment:
       PORT: "8085"
       NODE_ENV: production
-      SESSION_SECRET: "CHANGE_ME_TO_A_LONG_RANDOM_SECRET"
-      ADMIN_USERNAME: "admin"
-      ADMIN_PASSWORD: "CHANGE_ME_TO_A_STRONG_PASSWORD"
+      SESSION_SECRET: "${SESSION_SECRET:?Set SESSION_SECRET in Portainer}"
+      ADMIN_USERNAME: "${ADMIN_USERNAME:-admin}"
+      ADMIN_PASSWORD: "${ADMIN_PASSWORD:?Set ADMIN_PASSWORD in Portainer}"
       DATA_DIR: /data
       PUBLIC_TITLE: "Willkommen im Gäste-WLAN"
       PUBLIC_SUBTITLE: "Scannen und direkt verbinden."
