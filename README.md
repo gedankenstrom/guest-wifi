@@ -13,18 +13,33 @@ Moderne, selbst gehostete Gäste-WLAN-Landingpage mit automatisch generiertem QR
 - Passwort-Hashing mit bcrypt, Session-Cookies und Login-Rate-Limit
 - WLAN-Konfiguration und Sessions persistent im Docker-Volume speichern
 
+## Image bauen und veröffentlichen
+
+GitHub Actions baut das Docker-Image automatisch bei jedem Push auf `main` und veröffentlicht es unter:
+
+`ghcr.io/gedankenstrom/guest-wifi:latest`
+
+Der Workflow liegt unter `.github/workflows/publish-image.yml`. Nach dem ersten erfolgreichen Lauf muss das neu angelegte Container-Paket gegebenenfalls einmalig in GitHub unter **Packages → guest-wifi → Package settings → Change visibility → Public** auf öffentlich gestellt werden. Nur dann kann Portainer das Image ohne GHCR-Anmeldung herunterladen.
+
 ## Portainer / Docker Compose
 
-1. Repository `gedankenstrom/guest-wifi` in Portainer als Stack hinzufügen.
-2. Vor dem Deploy in `docker-compose.yml` unbedingt diese Werte ändern:
+1. In GitHub unter **Actions** warten, bis **Build and publish Guest WiFi image** erfolgreich abgeschlossen ist.
+2. Falls erforderlich, das GHCR-Paket wie oben beschrieben auf **Public** stellen.
+3. In Portainer **Stacks → Add stack → Repository** öffnen.
+4. Repository URL: `https://github.com/gedankenstrom/guest-wifi.git`
+5. Reference: `refs/heads/main`
+6. Compose path: `docker-compose.yml`
+7. Vor dem Deploy die Werte in `docker-compose.yml` unbedingt ändern:
    - `SESSION_SECRET`: zufälliger, langer Wert (mindestens 32 Zeichen)
    - `ADMIN_PASSWORD`: eigenes, starkes Admin-Passwort
    - optional `ADMIN_USERNAME`
-3. Stack deployen.
-4. Öffnen: `http://SERVER-IP:8085`
-5. Adminbereich: `http://SERVER-IP:8085/admin.html`
+8. Stack deployen.
 
 Ein Secret kannst du beispielsweise mit `openssl rand -hex 32` erzeugen.
+
+Öffentliche Seite: `http://SERVER-IP:8085`
+
+Adminbereich: `http://SERVER-IP:8085/admin.html`
 
 ## Speicherung
 
