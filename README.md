@@ -51,8 +51,6 @@ services:
       ADMIN_USERNAME: "${ADMIN_USERNAME:-admin}"
       ADMIN_PASSWORD: "${ADMIN_PASSWORD:?ADMIN_PASSWORD fehlt}"
       DATA_DIR: /data
-      PUBLIC_TITLE: "Willkommen im Gäste-WLAN"
-      PUBLIC_SUBTITLE: "Scannen und direkt verbinden."
 
     volumes:
       - guest-wifi-data:/data
