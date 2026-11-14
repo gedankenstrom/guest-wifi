@@ -29,13 +29,13 @@ Der Workflow liegt unter `.github/workflows/publish-image.yml`. Nach dem ersten 
 4. Repository URL: `https://github.com/gedankenstrom/guest-wifi.git`
 5. Reference: `refs/heads/main`
 6. Compose path: `docker-compose.yml`
-7. Vor dem Deploy die Werte in `docker-compose.yml` unbedingt ändern:
+7. Unter **Environment variables** diese Variablen eintragen:
    - `SESSION_SECRET`: zufälliger, langer Wert (mindestens 32 Zeichen)
    - `ADMIN_PASSWORD`: eigenes, starkes Admin-Passwort
-   - optional `ADMIN_USERNAME`
+   - optional `ADMIN_USERNAME` (Standard: `admin`)
 8. Stack deployen.
 
-Ein Secret kannst du beispielsweise mit `openssl rand -hex 32` erzeugen.
+Ein Secret kannst du beispielsweise mit `openssl rand -hex 32` erzeugen. Zugangsdaten gehören ausschließlich in die Portainer-Umgebungsvariablen, niemals in die öffentliche GitHub-Datei.
 
 Öffentliche Seite: `http://SERVER-IP:8085`
 
