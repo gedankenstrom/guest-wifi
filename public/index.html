@@ -3,11 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<meta name="theme-color" content="#f5f7fb">
+<meta name="theme-color" content="#f5f5f7">
 <title>Guest WiFi</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="/style.css">
 </head>
 <body>
@@ -25,7 +22,7 @@
   <section class="wifi-card">
     <div class="qr-side">
       <div class="qr-frame"><img id="qr" alt="WLAN QR-Code"></div>
-      <div class="scan-note"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><path d="M14 14h3v3h-3zM20 14v2M17 20h4M20 18v3"/></svg> Kamera öffnen und Code scannen</div>
+      <div class="scan-note"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><path d="M14 14h3v3h-3zM20 14v2M17 20h4M20 18v3"/></svg> Mit der Kamera scannen</div>
     </div>
     <div class="details">
       <div class="connected-label"><span class="live-dot"></span> WLAN BEREIT</div>
@@ -33,13 +30,13 @@
       <div class="ssid" id="ssid">–</div>
       <div class="field-label password-label">PASSWORT</div>
       <div class="password-row"><span id="password">–</span><button id="copy" class="icon-btn" aria-label="Passwort kopieren" title="Passwort kopieren"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="8" y="8" width="12" height="12" rx="2"/><path d="M16 8V5a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h3"/></svg></button></div>
-      <button class="download-btn" id="download"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3v12m-5-5 5 5 5-5M5 17v4h14v-4"/></svg> QR-Code herunterladen</button>
-      <p class="footnote">Der QR-Code verbindet dein Gerät automatisch mit dem Gäste-WLAN.</p>
+      <button class="download-btn" id="download"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3v12m-5-5 5 5 5-5M5 17v4h14v-4"/></svg> QR-Code laden</button>
+      <p class="footnote">Scanne den Code, um dich automatisch mit dem Gäste-WLAN zu verbinden.</p>
     </div>
   </section>
-  <div class="bottom-note"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 22s8-4 8-11V5l-8-3-8 3v6c0 7 8 11 8 11Z"/><path d="m9 12 2 2 4-4"/></svg> Sicher verbunden. Einfach. Willkommen.</div>
+  <div class="bottom-note"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 22s8-4 8-11V5l-8-3-8 3v6c0 7 8 11 8 11Z"/><path d="m9 12 2 2 4-4"/></svg> Sicher verbunden</div>
 </main>
-<footer>GUEST WIFI · PRIVATE NETWORK ACCESS</footer>
+<footer>GUEST WIFI <span>·</span> PRIVATE NETWORK ACCESS</footer>
 <div class="toast" id="toast" role="status"></div>
 <script src="/public.js"></script>
 </body>
