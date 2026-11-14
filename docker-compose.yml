@@ -1,0 +1,21 @@
+services:
+  guest-wifi:
+    build: .
+    container_name: guest-wifi
+    restart: unless-stopped
+    ports:
+      - "8085:8085"
+    environment:
+      PORT: "8085"
+      NODE_ENV: production
+      SESSION_SECRET: "CHANGE_ME_TO_A_LONG_RANDOM_SECRET"
+      ADMIN_USERNAME: "admin"
+      ADMIN_PASSWORD: "CHANGE_ME_TO_A_STRONG_PASSWORD"
+      DATA_DIR: /data
+      PUBLIC_TITLE: "Willkommen im Gäste-WLAN"
+      PUBLIC_SUBTITLE: "Scannen und direkt verbinden."
+    volumes:
+      - guest-wifi-data:/data
+
+volumes:
+  guest-wifi-data:
