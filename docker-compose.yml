@@ -1,6 +1,7 @@
 services:
   guest-wifi:
-    build: .
+    image: ghcr.io/gedankenstrom/guest-wifi:latest
+    pull_policy: always
     container_name: guest-wifi
     restart: unless-stopped
     ports:
